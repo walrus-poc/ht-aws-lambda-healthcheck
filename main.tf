@@ -18,7 +18,7 @@ resource "aws_iam_role" "iam_for_lambda" {
 
 resource "aws_lambda_function" "this" {
   filename      = "dns_health_check.zip"
-  function_name = "dns_health_check"
+  function_name = var.function_name
   role          = aws_iam_role.iam_for_lambda.arn
   handler       = "dns_health_check.lambda_handler"
   runtime       = "python3.9"
