@@ -16,7 +16,7 @@ resource "aws_iam_role" "iam_for_lambda" {
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
-resource "aws_lambda_function" "this" {
+resource "aws_lambda_function" "dns_health_check_function" {
   filename      = "dns_health_check.zip"
   function_name = var.function_name
   role          = aws_iam_role.iam_for_lambda.arn
